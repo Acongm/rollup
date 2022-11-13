@@ -1,8 +1,15 @@
 {
-  "name": "rollup",
+  "name": "parcel-demo",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Acongm/rollup.git",
   "author": "acongm <acongm@126.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "preact": "^10.11.2"
+  }
 }
