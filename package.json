@@ -4,5 +4,6 @@
   "main": "index.js",
   "repository": "https://github.com/Acongm/rollup.git",
   "author": "acongm <acongm@126.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {}
 }
