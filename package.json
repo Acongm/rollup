@@ -1,0 +1,62 @@
+{
+  "name": "rollup",
+  "version": "1.0.0",
+  "description": "rollup study",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "umd": "./dist/index.umd.js",
+  "types": "./dist/types/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint 'src/**/*.{js,ts,tex}'",
+    "build": "rm -rf build/* && rollup -c rollup.config.js",
+    "build:css": "rm -rf build/* && rollup -c rollup.config.css.js",
+    "build:example": "rm -rf build/* && rollup -c rollup.config.example.js",
+    "tsc:types": "tsc --emitDeclarationOnly --watch --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acongm/rollup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acongm/rollup/issues"
+  },
+  "homepage": "https://github.com/Acongm/rollup#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.1.0",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "acorn-jsx": "^5.3.2",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "react-jsx": "^1.0.0",
+    "rollup": "^2.55.1",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-import": "^1.1.1",
+    "rollup-plugin-postcss": "^3.0.0",
+    "tslib": "^2.4.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "preact": "^10.11.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*./src/**/*.{js,ts,json,css,less,md}": [
+      "prettier --write",
+      "yarn lint"
+    ]
+  }
+}
