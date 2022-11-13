@@ -1,2 +1,315 @@
-var e,n,t,_,l,o={},r=[],i=/acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;function u(e,n){for(var t in n)e[t]=n[t];return e}function s(e){var n=e.parentNode;n&&n.removeChild(e)}function c(n,t,_){var l,o,r,i={};for(r in t)"key"==r?l=t[r]:"ref"==r?o=t[r]:i[r]=t[r];if(arguments.length>2&&(i.children=arguments.length>3?e.call(arguments,2):_),"function"==typeof n&&null!=n.defaultProps)for(r in n.defaultProps)void 0===i[r]&&(i[r]=n.defaultProps[r]);return f(n,i,l,o,null)}function f(e,_,l,o,r){var i={type:e,props:_,key:l,ref:o,__k:null,__:null,__b:0,__e:null,__d:void 0,__c:null,__h:null,constructor:void 0,__v:null==r?++t:r};return null==r&&null!=n.vnode&&n.vnode(i),i}function p(e){return e.children}function a(e,n){this.props=e,this.context=n}function d(e,n){if(null==n)return e.__?d(e.__,e.__.__k.indexOf(e)+1):null;for(var t;n<e.__k.length;n++)if(null!=(t=e.__k[n])&&null!=t.__e)return t.__e;return"function"==typeof e.type?d(e):null}function h(e){var n,t;if(null!=(e=e.__)&&null!=e.__c){for(e.__e=e.__c.base=null,n=0;n<e.__k.length;n++)if(null!=(t=e.__k[n])&&null!=t.__e){e.__e=e.__c.base=t.__e;break}return h(e)}}function v(e){(!e.__d&&(e.__d=!0)&&_.push(e)&&!y.__r++||l!==n.debounceRendering)&&((l=n.debounceRendering)||setTimeout)(y)}function y(){for(var e;y.__r=_.length;)e=_.sort((function(e,n){return e.__v.__b-n.__v.__b})),_=[],e.some((function(e){var n,t,_,l,o,r;e.__d&&(o=(l=(n=e).__v).__e,(r=n.__P)&&(t=[],(_=u({},l)).__v=l.__v+1,w(r,l,_,n.__n,void 0!==r.ownerSVGElement,null!=l.__h?[o]:null,t,null==o?d(l):o,l.__h),E(t,l),l.__e!=o&&h(l)))}))}function m(e,n,t,_,l,i,u,s,c,a){var h,v,y,m,k,x,C,S=_&&_.__k||r,E=S.length;for(t.__k=[],h=0;h<n.length;h++)if(null!=(m=t.__k[h]=null==(m=n[h])||"boolean"==typeof m?null:"string"==typeof m||"number"==typeof m||"bigint"==typeof m?f(null,m,null,null,m):Array.isArray(m)?f(p,{children:m},null,null,null):m.__b>0?f(m.type,m.props,m.key,m.ref?m.ref:null,m.__v):m)){if(m.__=t,m.__b=t.__b+1,null===(y=S[h])||y&&m.key==y.key&&m.type===y.type)S[h]=void 0;else for(v=0;v<E;v++){if((y=S[v])&&m.key==y.key&&m.type===y.type){S[v]=void 0;break}y=null}w(e,m,y=y||o,l,i,u,s,c,a),k=m.__e,(v=m.ref)&&y.ref!=v&&(C||(C=[]),y.ref&&C.push(y.ref,null,m),C.push(v,m.__c||k,m)),null!=k?(null==x&&(x=k),"function"==typeof m.type&&m.__k===y.__k?m.__d=c=g(m,c,e):c=b(e,m,y,S,k,c),"function"==typeof t.type&&(t.__d=c)):c&&y.__e==c&&c.parentNode!=e&&(c=d(y))}for(t.__e=x,h=E;h--;)null!=S[h]&&P(S[h],S[h]);if(C)for(h=0;h<C.length;h++)T(C[h],C[++h],C[++h])}function g(e,n,t){for(var _,l=e.__k,o=0;l&&o<l.length;o++)(_=l[o])&&(_.__=e,n="function"==typeof _.type?g(_,n,t):b(t,_,_,l,_.__e,n));return n}function b(e,n,t,_,l,o){var r,i,u;if(void 0!==n.__d)r=n.__d,n.__d=void 0;else if(null==t||l!=o||null==l.parentNode)e:if(null==o||o.parentNode!==e)e.appendChild(l),r=null;else{for(i=o,u=0;(i=i.nextSibling)&&u<_.length;u+=2)if(i==l)break e;e.insertBefore(l,o),r=o}return void 0!==r?r:l.nextSibling}function k(e,n,t){"-"===n[0]?e.setProperty(n,t):e[n]=null==t?"":"number"!=typeof t||i.test(n)?t:t+"px"}function x(e,n,t,_,l){var o;e:if("style"===n)if("string"==typeof t)e.style.cssText=t;else{if("string"==typeof _&&(e.style.cssText=_=""),_)for(n in _)t&&n in t||k(e.style,n,"");if(t)for(n in t)_&&t[n]===_[n]||k(e.style,n,t[n])}else if("o"===n[0]&&"n"===n[1])o=n!==(n=n.replace(/Capture$/,"")),n=n.toLowerCase()in e?n.toLowerCase().slice(2):n.slice(2),e.l||(e.l={}),e.l[n+o]=t,t?_||e.addEventListener(n,o?S:C,o):e.removeEventListener(n,o?S:C,o);else if("dangerouslySetInnerHTML"!==n){if(l)n=n.replace(/xlink(H|:h)/,"h").replace(/sName$/,"s");else if("href"!==n&&"list"!==n&&"form"!==n&&"tabIndex"!==n&&"download"!==n&&n in e)try{e[n]=null==t?"":t;break e}catch(e){}"function"==typeof t||(null==t||!1===t&&-1==n.indexOf("-")?e.removeAttribute(n):e.setAttribute(n,t))}}function C(e){this.l[e.type+!1](n.event?n.event(e):e)}function S(e){this.l[e.type+!0](n.event?n.event(e):e)}function w(e,t,_,l,o,r,i,s,c){var f,d,h,v,y,g,b,k,x,C,S,w,E,T,P,U=t.type;if(void 0!==t.constructor)return null;null!=_.__h&&(c=_.__h,s=t.__e=_.__e,t.__h=null,r=[s]),(f=n.__b)&&f(t);try{e:if("function"==typeof U){if(k=t.props,x=(f=U.contextType)&&l[f.__c],C=f?x?x.props.value:f.__:l,_.__c?b=(d=t.__c=_.__c).__=d.__E:("prototype"in U&&U.prototype.render?t.__c=d=new U(k,C):(t.__c=d=new a(k,C),d.constructor=U,d.render=D),x&&x.sub(d),d.props=k,d.state||(d.state={}),d.context=C,d.__n=l,h=d.__d=!0,d.__h=[],d._sb=[]),null==d.__s&&(d.__s=d.state),null!=U.getDerivedStateFromProps&&(d.__s==d.state&&(d.__s=u({},d.__s)),u(d.__s,U.getDerivedStateFromProps(k,d.__s))),v=d.props,y=d.state,h)null==U.getDerivedStateFromProps&&null!=d.componentWillMount&&d.componentWillMount(),null!=d.componentDidMount&&d.__h.push(d.componentDidMount);else{if(null==U.getDerivedStateFromProps&&k!==v&&null!=d.componentWillReceiveProps&&d.componentWillReceiveProps(k,C),!d.__e&&null!=d.shouldComponentUpdate&&!1===d.shouldComponentUpdate(k,d.__s,C)||t.__v===_.__v){for(d.props=k,d.state=d.__s,t.__v!==_.__v&&(d.__d=!1),d.__v=t,t.__e=_.__e,t.__k=_.__k,t.__k.forEach((function(e){e&&(e.__=t)})),S=0;S<d._sb.length;S++)d.__h.push(d._sb[S]);d._sb=[],d.__h.length&&i.push(d);break e}null!=d.componentWillUpdate&&d.componentWillUpdate(k,d.__s,C),null!=d.componentDidUpdate&&d.__h.push((function(){d.componentDidUpdate(v,y,g)}))}if(d.context=C,d.props=k,d.__v=t,d.__P=e,w=n.__r,E=0,"prototype"in U&&U.prototype.render){for(d.state=d.__s,d.__d=!1,w&&w(t),f=d.render(d.props,d.state,d.context),T=0;T<d._sb.length;T++)d.__h.push(d._sb[T]);d._sb=[]}else do{d.__d=!1,w&&w(t),f=d.render(d.props,d.state,d.context),d.state=d.__s}while(d.__d&&++E<25);d.state=d.__s,null!=d.getChildContext&&(l=u(u({},l),d.getChildContext())),h||null==d.getSnapshotBeforeUpdate||(g=d.getSnapshotBeforeUpdate(v,y)),P=null!=f&&f.type===p&&null==f.key?f.props.children:f,m(e,Array.isArray(P)?P:[P],t,_,l,o,r,i,s,c),d.base=t.__e,t.__h=null,d.__h.length&&i.push(d),b&&(d.__E=d.__=null),d.__e=!1}else null==r&&t.__v===_.__v?(t.__k=_.__k,t.__e=_.__e):t.__e=N(_.__e,t,_,l,o,r,i,c);(f=n.diffed)&&f(t)}catch(e){t.__v=null,(c||null!=r)&&(t.__e=s,t.__h=!!c,r[r.indexOf(s)]=null),n.__e(e,t,_)}}function E(e,t){n.__c&&n.__c(t,e),e.some((function(t){try{e=t.__h,t.__h=[],e.some((function(e){e.call(t)}))}catch(e){n.__e(e,t.__v)}}))}function N(n,t,_,l,r,i,u,c){var f,p,a,h=_.props,v=t.props,y=t.type,g=0;if("svg"===y&&(r=!0),null!=i)for(;g<i.length;g++)if((f=i[g])&&"setAttribute"in f==!!y&&(y?f.localName===y:3===f.nodeType)){n=f,i[g]=null;break}if(null==n){if(null===y)return document.createTextNode(v);n=r?document.createElementNS("http://www.w3.org/2000/svg",y):document.createElement(y,v.is&&v),i=null,c=!1}if(null===y)h===v||c&&n.data===v||(n.data=v);else{if(i=i&&e.call(n.childNodes),p=(h=_.props||o).dangerouslySetInnerHTML,a=v.dangerouslySetInnerHTML,!c){if(null!=i)for(h={},g=0;g<n.attributes.length;g++)h[n.attributes[g].name]=n.attributes[g].value;(a||p)&&(a&&(p&&a.__html==p.__html||a.__html===n.innerHTML)||(n.innerHTML=a&&a.__html||""))}if(function(e,n,t,_,l){var o;for(o in t)"children"===o||"key"===o||o in n||x(e,o,null,t[o],_);for(o in n)l&&"function"!=typeof n[o]||"children"===o||"key"===o||"value"===o||"checked"===o||t[o]===n[o]||x(e,o,n[o],t[o],_)}(n,v,h,r,c),a)t.__k=[];else if(g=t.props.children,m(n,Array.isArray(g)?g:[g],t,_,l,r&&"foreignObject"!==y,i,u,i?i[0]:_.__k&&d(_,0),c),null!=i)for(g=i.length;g--;)null!=i[g]&&s(i[g]);c||("value"in v&&void 0!==(g=v.value)&&(g!==n.value||"progress"===y&&!g||"option"===y&&g!==h.value)&&x(n,"value",g,h.value,!1),"checked"in v&&void 0!==(g=v.checked)&&g!==n.checked&&x(n,"checked",g,h.checked,!1))}return n}function T(e,t,_){try{"function"==typeof e?e(t):e.current=t}catch(e){n.__e(e,_)}}function P(e,t,_){var l,o;if(n.unmount&&n.unmount(e),(l=e.ref)&&(l.current&&l.current!==e.__e||T(l,null,t)),null!=(l=e.__c)){if(l.componentWillUnmount)try{l.componentWillUnmount()}catch(e){n.__e(e,t)}l.base=l.__P=null,e.__c=void 0}if(l=e.__k)for(o=0;o<l.length;o++)l[o]&&P(l[o],t,_||"function"!=typeof e.type);_||null==e.__e||s(e.__e),e.__=e.__e=e.__d=void 0}function D(e,n,t){return this.constructor(e,t)}e=r.slice,n={__e:function(e,n,t,_){for(var l,o,r;n=n.__;)if((l=n.__c)&&!l.__)try{if((o=l.constructor)&&null!=o.getDerivedStateFromError&&(l.setState(o.getDerivedStateFromError(e)),r=l.__d),null!=l.componentDidCatch&&(l.componentDidCatch(e,_||{}),r=l.__d),r)return l.__E=l}catch(n){e=n}throw e}},t=0,a.prototype.setState=function(e,n){var t;t=null!=this.__s&&this.__s!==this.state?this.__s:this.__s=u({},this.state),"function"==typeof e&&(e=e(u({},t),this.props)),e&&u(t,e),null!=e&&this.__v&&(n&&this._sb.push(n),v(this))},a.prototype.forceUpdate=function(e){this.__v&&(this.__e=!0,e&&this.__h.push(e),v(this))},a.prototype.render=p,_=[],y.__r=0;const U=()=>c("div",{className:"container",style:{color:"red"}},"hello preact 123"),A=(t,_)=>function(t,_,l){var r,i,u;n.__&&n.__(t,_),i=(r="function"==typeof l)?null:l&&l.__k||_.__k,u=[],w(_,t=(!r&&l||_).__k=c(p,null,[t]),i||o,o,void 0!==_.ownerSVGElement,!r&&l?[l]:i?null:_.firstChild?e.call(_.childNodes):null,u,!r&&l?l:i?i.__e:_.firstChild,r),E(u,t)}(c(U,null),t);!function(e,n){void 0===n&&(n={});var t=n.insertAt;if(e&&"undefined"!=typeof document){var _=document.head||document.getElementsByTagName("head")[0],l=document.createElement("style");l.type="text/css","top"===t&&_.firstChild?_.insertBefore(l,_.firstChild):_.appendChild(l),l.styleSheet?l.styleSheet.cssText=e:l.appendChild(document.createTextNode(e))}}("html,\nbody {\n  padding: 0;\n  margin: 0;\n}\n\n.style_container__wbUj_ {\n  font-size: 20px;\n}\n");const L=e=>{Object.assign({},e);const n=document.createElement("div");n.className="rollup",document.body.appendChild(n);return A(n)};export{L as default};
+var n,
+  l,
+  u,
+  t,
+  o,
+  f = {},
+  e = [],
+  c = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
+function s(n, l) {
+  for (var u in l) n[u] = l[u];
+  return n;
+}
+function a(n) {
+  var l = n.parentNode;
+  l && l.removeChild(n);
+}
+function h(l, u, i) {
+  var t,
+    o,
+    r,
+    f = {};
+  for (r in u) "key" == r ? t = u[r] : "ref" == r ? o = u[r] : f[r] = u[r];
+  if (arguments.length > 2 && (f.children = arguments.length > 3 ? n.call(arguments, 2) : i), "function" == typeof l && null != l.defaultProps) for (r in l.defaultProps) void 0 === f[r] && (f[r] = l.defaultProps[r]);
+  return v(l, f, t, o, null);
+}
+function v(n, i, t, o, r) {
+  var f = {
+    type: n,
+    props: i,
+    key: t,
+    ref: o,
+    __k: null,
+    __: null,
+    __b: 0,
+    __e: null,
+    __d: void 0,
+    __c: null,
+    __h: null,
+    constructor: void 0,
+    __v: null == r ? ++u : r
+  };
+  return null == r && null != l.vnode && l.vnode(f), f;
+}
+function p(n) {
+  return n.children;
+}
+function d(n, l) {
+  this.props = n, this.context = l;
+}
+function _(n, l) {
+  if (null == l) return n.__ ? _(n.__, n.__.__k.indexOf(n) + 1) : null;
+  for (var u; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) return u.__e;
+  return "function" == typeof n.type ? _(n) : null;
+}
+function k(n) {
+  var l, u;
+  if (null != (n = n.__) && null != n.__c) {
+    for (n.__e = n.__c.base = null, l = 0; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) {
+      n.__e = n.__c.base = u.__e;
+      break;
+    }
+    return k(n);
+  }
+}
+function b(n) {
+  (!n.__d && (n.__d = !0) && t.push(n) && !g.__r++ || o !== l.debounceRendering) && ((o = l.debounceRendering) || setTimeout)(g);
+}
+function g() {
+  for (var n; g.__r = t.length;) n = t.sort(function (n, l) {
+    return n.__v.__b - l.__v.__b;
+  }), t = [], n.some(function (n) {
+    var l, u, i, t, o, r;
+    n.__d && (o = (t = (l = n).__v).__e, (r = l.__P) && (u = [], (i = s({}, t)).__v = t.__v + 1, j(r, t, i, l.__n, void 0 !== r.ownerSVGElement, null != t.__h ? [o] : null, u, null == o ? _(t) : o, t.__h), z(u, t), t.__e != o && k(t)));
+  });
+}
+function w(n, l, u, i, t, o, r, c, s, a) {
+  var h,
+    y,
+    d,
+    k,
+    b,
+    g,
+    w,
+    x = i && i.__k || e,
+    C = x.length;
+  for (u.__k = [], h = 0; h < l.length; h++) if (null != (k = u.__k[h] = null == (k = l[h]) || "boolean" == typeof k ? null : "string" == typeof k || "number" == typeof k || "bigint" == typeof k ? v(null, k, null, null, k) : Array.isArray(k) ? v(p, {
+    children: k
+  }, null, null, null) : k.__b > 0 ? v(k.type, k.props, k.key, k.ref ? k.ref : null, k.__v) : k)) {
+    if (k.__ = u, k.__b = u.__b + 1, null === (d = x[h]) || d && k.key == d.key && k.type === d.type) x[h] = void 0;else for (y = 0; y < C; y++) {
+      if ((d = x[y]) && k.key == d.key && k.type === d.type) {
+        x[y] = void 0;
+        break;
+      }
+      d = null;
+    }
+    j(n, k, d = d || f, t, o, r, c, s, a), b = k.__e, (y = k.ref) && d.ref != y && (w || (w = []), d.ref && w.push(d.ref, null, k), w.push(y, k.__c || b, k)), null != b ? (null == g && (g = b), "function" == typeof k.type && k.__k === d.__k ? k.__d = s = m(k, s, n) : s = A(n, k, d, x, b, s), "function" == typeof u.type && (u.__d = s)) : s && d.__e == s && s.parentNode != n && (s = _(d));
+  }
+  for (u.__e = g, h = C; h--;) null != x[h] && N(x[h], x[h]);
+  if (w) for (h = 0; h < w.length; h++) M(w[h], w[++h], w[++h]);
+}
+function m(n, l, u) {
+  for (var i, t = n.__k, o = 0; t && o < t.length; o++) (i = t[o]) && (i.__ = n, l = "function" == typeof i.type ? m(i, l, u) : A(u, i, i, t, i.__e, l));
+  return l;
+}
+function A(n, l, u, i, t, o) {
+  var r, f, e;
+  if (void 0 !== l.__d) r = l.__d, l.__d = void 0;else if (null == u || t != o || null == t.parentNode) n: if (null == o || o.parentNode !== n) n.appendChild(t), r = null;else {
+    for (f = o, e = 0; (f = f.nextSibling) && e < i.length; e += 2) if (f == t) break n;
+    n.insertBefore(t, o), r = o;
+  }
+  return void 0 !== r ? r : t.nextSibling;
+}
+function C(n, l, u, i, t) {
+  var o;
+  for (o in u) "children" === o || "key" === o || o in l || H(n, o, null, u[o], i);
+  for (o in l) t && "function" != typeof l[o] || "children" === o || "key" === o || "value" === o || "checked" === o || u[o] === l[o] || H(n, o, l[o], u[o], i);
+}
+function $(n, l, u) {
+  "-" === l[0] ? n.setProperty(l, u) : n[l] = null == u ? "" : "number" != typeof u || c.test(l) ? u : u + "px";
+}
+function H(n, l, u, i, t) {
+  var o;
+  n: if ("style" === l) {
+    if ("string" == typeof u) n.style.cssText = u;else {
+      if ("string" == typeof i && (n.style.cssText = i = ""), i) for (l in i) u && l in u || $(n.style, l, "");
+      if (u) for (l in u) i && u[l] === i[l] || $(n.style, l, u[l]);
+    }
+  } else if ("o" === l[0] && "n" === l[1]) o = l !== (l = l.replace(/Capture$/, "")), l = l.toLowerCase() in n ? l.toLowerCase().slice(2) : l.slice(2), n.l || (n.l = {}), n.l[l + o] = u, u ? i || n.addEventListener(l, o ? T : I, o) : n.removeEventListener(l, o ? T : I, o);else if ("dangerouslySetInnerHTML" !== l) {
+    if (t) l = l.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");else if ("href" !== l && "list" !== l && "form" !== l && "tabIndex" !== l && "download" !== l && l in n) try {
+      n[l] = null == u ? "" : u;
+      break n;
+    } catch (n) {}
+    "function" == typeof u || (null == u || !1 === u && -1 == l.indexOf("-") ? n.removeAttribute(l) : n.setAttribute(l, u));
+  }
+}
+function I(n) {
+  this.l[n.type + !1](l.event ? l.event(n) : n);
+}
+function T(n) {
+  this.l[n.type + !0](l.event ? l.event(n) : n);
+}
+function j(n, u, i, t, o, r, f, e, c) {
+  var a,
+    h,
+    v,
+    y,
+    _,
+    k,
+    b,
+    g,
+    m,
+    x,
+    A,
+    C,
+    $,
+    H,
+    I,
+    T = u.type;
+  if (void 0 !== u.constructor) return null;
+  null != i.__h && (c = i.__h, e = u.__e = i.__e, u.__h = null, r = [e]), (a = l.__b) && a(u);
+  try {
+    n: if ("function" == typeof T) {
+      if (g = u.props, m = (a = T.contextType) && t[a.__c], x = a ? m ? m.props.value : a.__ : t, i.__c ? b = (h = u.__c = i.__c).__ = h.__E : ("prototype" in T && T.prototype.render ? u.__c = h = new T(g, x) : (u.__c = h = new d(g, x), h.constructor = T, h.render = O), m && m.sub(h), h.props = g, h.state || (h.state = {}), h.context = x, h.__n = t, v = h.__d = !0, h.__h = [], h._sb = []), null == h.__s && (h.__s = h.state), null != T.getDerivedStateFromProps && (h.__s == h.state && (h.__s = s({}, h.__s)), s(h.__s, T.getDerivedStateFromProps(g, h.__s))), y = h.props, _ = h.state, v) null == T.getDerivedStateFromProps && null != h.componentWillMount && h.componentWillMount(), null != h.componentDidMount && h.__h.push(h.componentDidMount);else {
+        if (null == T.getDerivedStateFromProps && g !== y && null != h.componentWillReceiveProps && h.componentWillReceiveProps(g, x), !h.__e && null != h.shouldComponentUpdate && !1 === h.shouldComponentUpdate(g, h.__s, x) || u.__v === i.__v) {
+          for (h.props = g, h.state = h.__s, u.__v !== i.__v && (h.__d = !1), h.__v = u, u.__e = i.__e, u.__k = i.__k, u.__k.forEach(function (n) {
+            n && (n.__ = u);
+          }), A = 0; A < h._sb.length; A++) h.__h.push(h._sb[A]);
+          h._sb = [], h.__h.length && f.push(h);
+          break n;
+        }
+        null != h.componentWillUpdate && h.componentWillUpdate(g, h.__s, x), null != h.componentDidUpdate && h.__h.push(function () {
+          h.componentDidUpdate(y, _, k);
+        });
+      }
+      if (h.context = x, h.props = g, h.__v = u, h.__P = n, C = l.__r, $ = 0, "prototype" in T && T.prototype.render) {
+        for (h.state = h.__s, h.__d = !1, C && C(u), a = h.render(h.props, h.state, h.context), H = 0; H < h._sb.length; H++) h.__h.push(h._sb[H]);
+        h._sb = [];
+      } else do {
+        h.__d = !1, C && C(u), a = h.render(h.props, h.state, h.context), h.state = h.__s;
+      } while (h.__d && ++$ < 25);
+      h.state = h.__s, null != h.getChildContext && (t = s(s({}, t), h.getChildContext())), v || null == h.getSnapshotBeforeUpdate || (k = h.getSnapshotBeforeUpdate(y, _)), I = null != a && a.type === p && null == a.key ? a.props.children : a, w(n, Array.isArray(I) ? I : [I], u, i, t, o, r, f, e, c), h.base = u.__e, u.__h = null, h.__h.length && f.push(h), b && (h.__E = h.__ = null), h.__e = !1;
+    } else null == r && u.__v === i.__v ? (u.__k = i.__k, u.__e = i.__e) : u.__e = L(i.__e, u, i, t, o, r, f, c);
+    (a = l.diffed) && a(u);
+  } catch (n) {
+    u.__v = null, (c || null != r) && (u.__e = e, u.__h = !!c, r[r.indexOf(e)] = null), l.__e(n, u, i);
+  }
+}
+function z(n, u) {
+  l.__c && l.__c(u, n), n.some(function (u) {
+    try {
+      n = u.__h, u.__h = [], n.some(function (n) {
+        n.call(u);
+      });
+    } catch (n) {
+      l.__e(n, u.__v);
+    }
+  });
+}
+function L(l, u, i, t, o, r, e, c) {
+  var s,
+    h,
+    v,
+    y = i.props,
+    p = u.props,
+    d = u.type,
+    k = 0;
+  if ("svg" === d && (o = !0), null != r) for (; k < r.length; k++) if ((s = r[k]) && "setAttribute" in s == !!d && (d ? s.localName === d : 3 === s.nodeType)) {
+    l = s, r[k] = null;
+    break;
+  }
+  if (null == l) {
+    if (null === d) return document.createTextNode(p);
+    l = o ? document.createElementNS("http://www.w3.org/2000/svg", d) : document.createElement(d, p.is && p), r = null, c = !1;
+  }
+  if (null === d) y === p || c && l.data === p || (l.data = p);else {
+    if (r = r && n.call(l.childNodes), h = (y = i.props || f).dangerouslySetInnerHTML, v = p.dangerouslySetInnerHTML, !c) {
+      if (null != r) for (y = {}, k = 0; k < l.attributes.length; k++) y[l.attributes[k].name] = l.attributes[k].value;
+      (v || h) && (v && (h && v.__html == h.__html || v.__html === l.innerHTML) || (l.innerHTML = v && v.__html || ""));
+    }
+    if (C(l, p, y, o, c), v) u.__k = [];else if (k = u.props.children, w(l, Array.isArray(k) ? k : [k], u, i, t, o && "foreignObject" !== d, r, e, r ? r[0] : i.__k && _(i, 0), c), null != r) for (k = r.length; k--;) null != r[k] && a(r[k]);
+    c || ("value" in p && void 0 !== (k = p.value) && (k !== l.value || "progress" === d && !k || "option" === d && k !== y.value) && H(l, "value", k, y.value, !1), "checked" in p && void 0 !== (k = p.checked) && k !== l.checked && H(l, "checked", k, y.checked, !1));
+  }
+  return l;
+}
+function M(n, u, i) {
+  try {
+    "function" == typeof n ? n(u) : n.current = u;
+  } catch (n) {
+    l.__e(n, i);
+  }
+}
+function N(n, u, i) {
+  var t, o;
+  if (l.unmount && l.unmount(n), (t = n.ref) && (t.current && t.current !== n.__e || M(t, null, u)), null != (t = n.__c)) {
+    if (t.componentWillUnmount) try {
+      t.componentWillUnmount();
+    } catch (n) {
+      l.__e(n, u);
+    }
+    t.base = t.__P = null, n.__c = void 0;
+  }
+  if (t = n.__k) for (o = 0; o < t.length; o++) t[o] && N(t[o], u, i || "function" != typeof n.type);
+  i || null == n.__e || a(n.__e), n.__ = n.__e = n.__d = void 0;
+}
+function O(n, l, u) {
+  return this.constructor(n, u);
+}
+function P(u, i, t) {
+  var o, r, e;
+  l.__ && l.__(u, i), r = (o = "function" == typeof t) ? null : t && t.__k || i.__k, e = [], j(i, u = (!o && t || i).__k = h(p, null, [u]), r || f, f, void 0 !== i.ownerSVGElement, !o && t ? [t] : r ? null : i.firstChild ? n.call(i.childNodes) : null, e, !o && t ? t : r ? r.__e : i.firstChild, o), z(e, u);
+}
+n = e.slice, l = {
+  __e: function (n, l, u, i) {
+    for (var t, o, r; l = l.__;) if ((t = l.__c) && !t.__) try {
+      if ((o = t.constructor) && null != o.getDerivedStateFromError && (t.setState(o.getDerivedStateFromError(n)), r = t.__d), null != t.componentDidCatch && (t.componentDidCatch(n, i || {}), r = t.__d), r) return t.__E = t;
+    } catch (l) {
+      n = l;
+    }
+    throw n;
+  }
+}, u = 0, d.prototype.setState = function (n, l) {
+  var u;
+  u = null != this.__s && this.__s !== this.state ? this.__s : this.__s = s({}, this.state), "function" == typeof n && (n = n(s({}, u), this.props)), n && s(u, n), null != n && this.__v && (l && this._sb.push(l), b(this));
+}, d.prototype.forceUpdate = function (n) {
+  this.__v && (this.__e = !0, n && this.__h.push(n), b(this));
+}, d.prototype.render = p, t = [], g.__r = 0;
+
+function styleInject(css, ref) {
+  if (ref === void 0) ref = {};
+  var insertAt = ref.insertAt;
+  if (!css || typeof document === 'undefined') {
+    return;
+  }
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = "html,\nbody {\n  padding: 0;\n  margin: 0;\n}\n.style-module_container__1zHaG {\n  font-size: 20px;\n}\n";
+var styles = {"container":"style-module_container__1zHaG"};
+styleInject(css_248z);
+
+const View = () => {
+    return (h("div", { className: styles.container, style: { color: 'red' } }, "hello preact 123"));
+};
+
+const renderApp = (dom, opt) => {
+    return P(h(View, null), dom);
+};
+
+const initAddView = (options) => {
+    Object.assign({}, options);
+    const div = document.createElement('div');
+    div.className = 'rollup';
+    document.body.appendChild(div);
+    const mountedDom = div;
+    return renderApp(mountedDom);
+};
+
+export { initAddView as default };
 //# sourceMappingURL=main.js.map

@@ -11,8 +11,12 @@ import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
 // import css from 'rollup-plugin-css-only'
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'typescript';
-import terser from '@rollup/plugin-terser';
+import json from '@rollup/plugin-json';
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
+// import terser from '@rollup/plugin-terser';
 // import uglify from 'rollup-plugin-uglify'; // 压缩包
+// import 'regenerator-runtime/runtime.js' // ??
 
 const env = process.env.NODE_ENV;
 
@@ -33,11 +37,14 @@ export default {
   // acornInjectPlugins: [jsx()],
   plugins: [
     // css({ output: 'bundle.css' }),
-    nodeResolve(),
+    nodeResolve({ browser: true, preferBuiltins: true }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
-    commonjs(),
+    commonjs({ include: ['node_modules/**'] }),
+    json(),
+    builtins(),
+    globals(),
     // ts({ typescript, jsx: 'preserve', jsxFactory: 'h', jsxFragmentFactory: 'Fragment' }),
     ts({
       typescript,
@@ -56,6 +63,7 @@ export default {
       // Or with custom options for `postcss-modules`
       modules: {},
     }),
-    terser(),
+    // terser(),
   ],
+  external: ['rollup'],
 };
