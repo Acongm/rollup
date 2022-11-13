@@ -9,6 +9,9 @@
     // "jsxFragmentFactory": "preact.Fragment",
     "skipLibCheck": true,
     "baseUrl": "./" /* 查找模块的基础目录 */,
+    "outDir": "dist/es7",
+    "declaration": true,
+    "declarationDir": "dist/type",
     "paths": {
       "*": ["node_modules/@types/*", "*"],
       "@/*": ["src/*"] /* 记录 baseUrl 的模块路径查找别名 */,
@@ -24,7 +27,7 @@
     /* 额外检查 */
     "noUnusedLocals": true /* 检查无用的变量. */,
     /* Module Resolution Options */
-    "moduleResolution": "node" /* 指定模块查找策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6) */,
+    "moduleResolution": "node" /* 指定模块查找策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6) */
     // "types": [] /* 类型声明文件 */
   },
   "include": [

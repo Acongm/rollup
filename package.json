@@ -9,10 +9,15 @@
   "type": "module",
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts,tex}'",
-    "build": "rm -rf build/* && rollup -c rollup.config.js",
-    "build:css": "rm -rf build/* && rollup -c rollup.config.css.js",
-    "build:example": "rm -rf build/* && rollup -c rollup.config.example.js",
-    "tsc:types": "tsc --emitDeclarationOnly --watch --project tsconfig.json"
+    "build": "npm run clear && npm run build:code",
+    "build:watch": "npm run tsc:watch & npm run rollup:watch",
+    "build:code": "rm -rf dist/* && npm run tsc & npm run rollup",
+    "clear": "rm -rf dist/*",
+    "rollup": "rollup -c rollup.config.js",
+    "rollup:watch": " rollup -c -w",
+    "tsc": "tsc -p tsconfig.json",
+    "tsc:watch": "tsc --watch",
+    "tsc:types": "tsc ./src --description --emitDeclarationOnly --watch"
   },
   "repository": {
     "type": "git",
@@ -38,7 +43,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "react-jsx": "^1.0.0",
-    "rollup": "^2.55.1",
+    "rollup": "^3.3.0",
     "rollup-plugin-css-only": "^4.3.0",
     "rollup-plugin-import": "^1.1.1",
     "rollup-plugin-postcss": "^3.0.0",
