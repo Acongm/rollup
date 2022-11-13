@@ -6,13 +6,13 @@
   "author": "acongm <acongm@126.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode=production",
-    "build:dev": "webpack --mode=development -o dist/dev"
+    "build": "webpack --mode=production --config webpack.config.js",
+    "build:dev": "webpack --mode=development --config webpack.config.js -o ./dist/index.dev.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
-    "babel-loader": "^9.1.0",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^4.10.0"
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
