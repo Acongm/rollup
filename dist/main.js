@@ -290,13 +290,16 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "html,\nbody {\n  padding: 0;\n  margin: 0;\n}\n.style-module_container__1zHaG {\n  font-size: 20px;\n}\n";
+var css_248z$1 = ".style-module_container__1zHaG {\n  font-size: 20px;\n}\n";
 var styles = {"container":"style-module_container__1zHaG"};
-styleInject(css_248z);
+styleInject(css_248z$1);
 
 const View = () => {
     return (h("div", { className: styles.container, style: { color: 'red' } }, "hello preact 123"));
 };
+
+var css_248z = "html,\nbody {\n  padding: 0;\n  margin: 0;\n}\n";
+styleInject(css_248z);
 
 const renderApp = (dom, opt) => {
     return P(h(View, null), dom);
