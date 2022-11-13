@@ -173,4 +173,8 @@ cjs 是同步的，运行时的，node 环境用 cjs，node 本身运行在服�
 [为什么说 rollup 比 webpack 更适合打包库](https://segmentfault.com/a/1190000038708512)
 [vite 原理浅析-dev 篇](https://juejin.cn/post/7050293652739850271)
 [vite原理浅析-prd篇（对比rollup和webpack）](https://juejin.cn/post/7055474242535555085)
+[如何看待 React 的替代框架 Preact？](https://www.zhihu.com/question/65479147)
+
 [vite - rollup 代码](https://github.com/vitejs/vite/blob/main/packages/vite/rollup.config.ts)
+
+[切换到 Preact（从 React）](https://preactjs.com/guide/v10/switching-to-preact/)

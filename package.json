@@ -2,8 +2,8 @@
   "name": "@acongmr/rollup",
   "version": "0.0.1",
   "description": "rollup study",
-  "main": "./dist/main.js",
-  "types": "./dist/type/main.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/type/index.d.ts",
   "type": "module",
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
