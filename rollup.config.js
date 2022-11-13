@@ -18,7 +18,7 @@ import globals from 'rollup-plugin-node-globals';
 // import uglify from 'rollup-plugin-uglify'; // 压缩包
 // import 'regenerator-runtime/runtime.js' // ??
 
-const env = process.env.NODE_ENV;
+const NODE_ENV = process.env.NODE_ENV||'development';
 
 export default {
   // don`t inlineDynamicImports iife
@@ -43,7 +43,7 @@ export default {
     // css({ output: 'bundle.css' }),
     nodeResolve({ browser: true, preferBuiltins: true }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify(env),
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
     }),
     commonjs({ include: ['node_modules/**'] }),
     json(),
