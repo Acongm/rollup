@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'remember-scroll_webpack.js',
+    filename: 'index.js',
     library: 'RememberScroll',
     libraryTarget: 'umd',
     libraryExport: 'default'
