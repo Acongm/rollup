@@ -22,15 +22,19 @@ const env = process.env.NODE_ENV;
 
 export default {
   // don`t inlineDynamicImports iife
-  input: ['./src/Object.ts', './src/main.ts'],
-  // input: './src/main.ts',
+  // input: ['./src/Object.ts', './src/main.ts'],
+  // input: {
+  //   index: './src/main.ts',
+  //   other: './src/Object.ts',
+  // },
+  input: './src/main.ts',
   output: [
     {
       dir: './dist',
       format: 'esm', // 五种输出格式：amd /  es6 / iife / umd / cjs
       name: 'demo', //当format为iife和umd时必须提供，将作为全局变量挂在window(浏览器环境)下：window.A=...
       sourcemap: true, //生成bundle.map.js文件，方便调试
-      // inlineDynamicImports: true,
+      inlineDynamicImports: true,
       // plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })],
     },
   ],
