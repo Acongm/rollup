@@ -3,7 +3,7 @@ import styles from './style.module.css';
 const View = () => {
   return (
     <div className={styles.container} style={{ color: 'red' }}>
-      hello preact 123
+      hello preact
     </div>
   );
 };

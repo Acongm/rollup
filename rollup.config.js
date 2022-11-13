@@ -17,10 +17,12 @@ import globals from 'rollup-plugin-node-globals';
 import terser from '@rollup/plugin-terser';
 // import uglify from 'rollup-plugin-uglify'; // 压缩包
 // import 'regenerator-runtime/runtime.js' // ??
+import serve from 'rollup-plugin-serve';
+import livereload from 'rollup-plugin-livereload';
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-console.log('NODE_ENV', NODE_ENV);
+// console.log('NODE_ENV', NODE_ENV);
 export default {
   // don`t inlineDynamicImports iife
   // input: ['./src/Object.ts', './src/index.ts'],
@@ -31,15 +33,15 @@ export default {
   input: './src/index.ts',
   external: [], // 外部插件
   onwarn(warning, warn) {
-    console.log('NODE_ENV', NODE_ENV);
-    console.log(warning, warn);
+    // console.log('NODE_ENV', NODE_ENV);
+    // console.log(warning, warn);
     // 自定義警告
     // do something...
   },
   output: [
     {
       dir: './dist',
-      format: 'iife', // 五种输出格式：amd /  es6 / iife / umd / cjs
+      format: 'cjs', // 五种输出格式：amd /  es6 / iife / umd / cjs
       name: 'demo', //当format为iife和umd时必须提供，将作为全局变量挂在window(浏览器环境)下：window.A=...
       sourcemap: true, //生成bundle.map.js文件，方便调试
       inlineDynamicImports: true,
@@ -76,5 +78,7 @@ export default {
       modules: {},
     }),
     NODE_ENV === 'production' && terser(),
+    NODE_ENV !== 'production' && serve({ contentBase: '' }),
+    NODE_ENV !== 'production' && livereload(),
   ],
 };

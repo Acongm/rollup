@@ -9,4 +9,5 @@ const initAddView = (options: { [key: string]: string }) => {
   const mountedDom = div;
   return render(mountedDom, renderProps);
 };
-export default initAddView;
+// export default initAddView;
+initAddView();
