@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "preact": "^10.11.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }
