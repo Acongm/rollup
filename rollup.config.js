@@ -14,12 +14,13 @@ import typescript from 'typescript';
 import json from '@rollup/plugin-json';
 import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
-// import terser from '@rollup/plugin-terser';
+import terser from '@rollup/plugin-terser';
 // import uglify from 'rollup-plugin-uglify'; // 压缩包
 // import 'regenerator-runtime/runtime.js' // ??
 
-const NODE_ENV = process.env.NODE_ENV||'development';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
+console.log('NODE_ENV', NODE_ENV);
 export default {
   // don`t inlineDynamicImports iife
   // input: ['./src/Object.ts', './src/index.ts'],
@@ -28,6 +29,13 @@ export default {
   //   other: './src/Object.ts',
   // },
   input: './src/index.ts',
+  external: [], // 外部插件
+  onwarn(warning, warn) {
+    console.log('NODE_ENV', NODE_ENV);
+    console.log(warning, warn);
+    // 自定義警告
+    // do something...
+  },
   output: [
     {
       dir: './dist',
@@ -67,7 +75,6 @@ export default {
       // Or with custom options for `postcss-modules`
       modules: {},
     }),
-    // terser(),
+    NODE_ENV === 'production' && terser(),
   ],
-  external: ['rollup'],
 };

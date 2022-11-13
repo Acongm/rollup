@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build": "npm run clear && npm run build:code",
-    "build:prod": "NODE_ENV='prod' & npm run clear && npm run build:code",
+    "build:prod": "npm run clear && NODE_ENV=production  npm run build:code",
     "build:watch": "npm run tsc:watch & npm run rollup:watch",
     "build:code": "rm -rf dist/* && npm run tsc & npm run rollup",
     "clear": "rm -rf dist/*",
