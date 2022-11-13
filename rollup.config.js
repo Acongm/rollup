@@ -1,12 +1,20 @@
 import jsx from 'acorn-jsx';
 import ts from '@rollup/plugin-typescript';
-import resolve from '@rollup/plugin-node-resolve';
+// 帮助寻找node_modules里的包
+import nodeResolve from '@rollup/plugin-node-resolve';
+// 替换待打包文件里的一些变量，如process在浏览器端是不存在的，需要被替换
+import replace from 'rollup-plugin-replace';
+// 将非ES6语法的包转为ES6可用
 import commonjs from '@rollup/plugin-commonjs';
+// rollup 的 babel 插件，ES6转ES5
 import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
-// import terser from '@rollup/plugin-terser'
 // import css from 'rollup-plugin-css-only'
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'typescript';
+import terser from '@rollup/plugin-terser';
+// import uglify from 'rollup-plugin-uglify'; // 压缩包
+
+const env = process.env.NODE_ENV;
 
 export default {
   // don`t inlineDynamicImports iife
@@ -15,20 +23,29 @@ export default {
   output: [
     {
       dir: './dist',
-      format: 'esm',
+      format: 'esm', // 五种输出格式：amd /  es6 / iife / umd / cjs
+      name: 'demo', //当format为iife和umd时必须提供，将作为全局变量挂在window(浏览器环境)下：window.A=...
+      sourcemap: true, //生成bundle.map.js文件，方便调试
       inlineDynamicImports: true,
-      plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })],
+      // plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })],
     },
   ],
-  acornInjectPlugins: [jsx()],
+  // acornInjectPlugins: [jsx()],
   plugins: [
     // css({ output: 'bundle.css' }),
-    resolve(),
+    nodeResolve(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(env),
+    }),
     commonjs(),
     // ts({ typescript, jsx: 'preserve', jsxFactory: 'h', jsxFragmentFactory: 'Fragment' }),
-    ts({ typescript, jsx: 'react', jsxFactory: 'h', jsxFragmentFactory: 'Fragment' }),
+    ts({
+      typescript,
+      jsx: 'react',
+      jsxFactory: 'h',
+      jsxFragmentFactory: 'Fragment',
+    }),
 
-    // terser(),
     babel({
       presets: ['@babel/preset-react'],
       babelHelpers: 'bundled',
@@ -39,5 +56,6 @@ export default {
       // Or with custom options for `postcss-modules`
       modules: {},
     }),
+    terser(),
   ],
 };
