@@ -1,5 +1,5 @@
 import render from './view/index';
-const initAddView = (options: { [key: string]: string }) => {
+const initAddView = (options?: { [key: string]: string }) => {
   const renderProps = {
     ...options,
   };

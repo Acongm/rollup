@@ -9,9 +9,13 @@
     // "jsxFragmentFactory": "preact.Fragment",
     "skipLibCheck": true,
     "baseUrl": "./" /* 查找模块的基础目录 */,
-    "outDir": "dist/es7",
+    "outDir": "dist/tsc",
+    // tsc 不打包
+    // "noEmit": true,
+    // 只打包出类型文件
+    "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "dist/type",
+    "declarationDir": "dist/types",
     "paths": {
       "*": ["node_modules/@types/*", "*"],
       "@/*": ["src/*"] /* 记录 baseUrl 的模块路径查找别名 */,
